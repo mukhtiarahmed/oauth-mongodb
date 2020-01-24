@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  oauth-mongodb:
+    ports:
+     - "9292:9292"
+    environment:
+      MONGO_URI: mongodb://mongodb_auth/auth_db
+    image: oauth-mongodb:latest
+    container_name: oauth-mongodb
+    depends_on:
+      - mongodb_auth
+    networks:
+     oauthnetwork:
+       aliases:
+        - oauth-mongodb
+        
+  mongodb_auth:
+    image: mongo
+    container_name: mongodb_auth
+    volumes:
+     - dbvolume:/data/db
+    ports:
+     - "27071:27017"
+    restart: always
+    networks:
+      oauthnetwork:
+       aliases:
+        - mongodb_auth
+
+volumes:
+  dbvolume: 
+
+networks:
+  oauthnetwork:
+    driver: bridge
