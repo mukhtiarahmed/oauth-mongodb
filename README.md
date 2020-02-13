@@ -15,7 +15,7 @@
   * `docker-compose up -d`     
   
 5. Let's check if our authentication endpoint is working
-  * `curl -X POST http://localhost:8080/oauth/token -H 'authorization: Basic Y2ZmZTM5OTAtNmYwZS0xMWU4LWI3NTAtNGQ4NjE0Yzk0MGZmOnNlY3JldA==' -F grant_type=password -F username=ahmed -F password=secret -F scope=trust`
+  * `curl -X POST http://localhost:9292/oauth/token -H 'authorization: Basic Y2ZmZTM5OTAtNmYwZS0xMWU4LWI3NTAtNGQ4NjE0Yzk0MGZmOnNlY3JldA==' -F grant_type=password -F username=ahmed -F password=secret -F scope=trust`
   
  
  
